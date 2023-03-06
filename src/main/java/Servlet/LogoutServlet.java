@@ -19,9 +19,11 @@ public class LogoutServlet extends HttpServlet {
 		try {
 			PrintWriter out =  response.getWriter();
 			if (request.getSession().getAttribute("auth") != null){
-				
+				request.getSession().getAttribute("auth");
+				response.sendRedirect("login.jsp");
 			}
 		} catch (Exception e) {
+			response.sendRedirect("index.jsp");
 		}
 	}
 
