@@ -3,6 +3,9 @@
 <%@page import="Entity.*"%>
 <%
 User auth = (User) request.getSession().getAttribute("auth");
+if (auth != null) {
+	request.setAttribute("auth", auth);
+}
 %>
 <!doctype html>
 <html lang="en">

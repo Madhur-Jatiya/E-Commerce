@@ -1,14 +1,15 @@
+<%@page import="org.apache.jasper.tagplugins.jstl.core.Import"%>
 <%@page import="Connection.DbConnection"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+
 <%@page import="Entity.*"%>
 <%
 User auth = (User) request.getSession().getAttribute("auth");
 if (auth != null) {
-	response.sendRedirect("index.jsp");
+	request.setAttribute("auth", auth);
 }
 %>
-
 <!doctype html>
 <html lang="en">
 <head>
