@@ -1,11 +1,15 @@
 package Dao;
 
+import java.awt.Robot;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.mysql.cj.result.Row;
+
+import Entity.Cart;
 import Entity.Product;
 
 public class ProductDao {
@@ -29,12 +33,41 @@ public class ProductDao {
 				row.setId(rs.getInt("id"));
 				row.setName(rs.getString("name"));
 				row.setCategory(rs.getString("category"));
-				row.setPrice(rs.getString("price"));
+				row.setPrice(rs.getDouble("price"));
 				row.setImage(rs.getString("image"));
 				products.add(row);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+		}
+		return products;
+	}
+
+	public List<Cart> getCartProducts(List<Cart> cartList) {
+		List<Cart> products = new ArrayList<Cart>();
+		try {
+			if (cartList.size()>0) {
+				
+			}
+			for (Cart items : cartList) {
+				query = "Select * from products where id = ?";
+				psmt = connection.prepareStatement(query);
+				psmt.setInt(1, items.getId());
+				rs = psmt.executeQuery();
+				
+				while(rs.next())
+				{
+					Cart row = new Cart();
+					row.setId(rs.getInt("id"));
+					row.setName(rs.getString("name"));
+					row.setPrice(rs.getDouble("price")*items.getQuantity());
+					row.setCategory(rs.getString("category"));
+					row.setQuantity(items.getQuantity());
+					products.add(row);
+				}
+			}
+		} catch (Exception e) {
+			 e.printStackTrace();
 		}
 		return products;
 	}

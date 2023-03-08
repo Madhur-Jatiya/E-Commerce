@@ -1,3 +1,8 @@
+<%@page import="Connection.DbConnection"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="Dao.ProductDao"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@page import="Entity.*"%>
@@ -5,6 +10,15 @@
 User auth = (User) request.getSession().getAttribute("auth");
 if (auth != null) {
 	request.setAttribute("auth", auth);
+}
+
+ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
+List<Cart> cartProduct = null;
+
+if (cart_list != null) {
+	ProductDao pDao = new ProductDao(DbConnection.getConnection());
+	cartProduct = pDao.getCartProducts(cart_list);
+	request.setAttribute("cart_list", cart_list);
 }
 %>
 <!doctype html>
@@ -42,18 +56,22 @@ if (auth != null) {
 				</tr>
 			</thead>
 			<tbody>
+				<%
+				if (cart_list != null) {
+					for (Cart c : cartProduct) {
+				%>
 				<tr>
-					<td>Nike Sports Shoes</td>
-					<td>Shoes</td>
-					<td>2499.00 &#8377;</td>
+					<td><%=c.getName()%></td>
+					<td><%=c.getCategory()%></td>
+					<td><%=c.getPrice()%> &#8377;</td>
 					<td>
 						<form action="" method="post" class="form-inline">
 							<input type="hidden" name="id" value="1" class="form-input">
 							<div class="form-group d-flex justify-content-between">
 								<a class="btn bnt-sm btn-decre" href="#"><i
 									class="fas fa-minus-square"></i></a> <input type="text"
-									name="quantity" value="1" class="form-control" readonly>
-								<a class="btn bnt-sm btn-incre" href="#"><i
+									name="quantity" value="<%=c.getQuantity()%>" class="form-control"
+									readonly> <a class="btn bnt-sm btn-incre" href="#"><i
 									class="fas fa-plus-square"></i></a>
 							</div>
 							<button type="submit" class="btn btn-primary btn-sm">Buy</button>
@@ -61,6 +79,11 @@ if (auth != null) {
 					</td>
 					<td><a class="btn btn-sm btn-danger" href="#">Remove</a></td>
 				</tr>
+				<%
+				}
+				}
+				%>
+
 			</tbody>
 		</table>
 	</div>

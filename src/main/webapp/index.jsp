@@ -42,16 +42,16 @@ List<Product> products = pd.getAllProducts();
 						<h5 class="card-title"><%=p.getName()%></h5>
 						<h6 class="price">
 							Price :
-							<%=p.getPrice()%>
-							&#8377;
+							<%=p.getPrice()%> &#8377;
+
 						</h6>
 						<h6 class="category">
 							Category:
 							<%=p.getCategory()%>
 						</h6>
 						<div class="mt-3 d-flex justify-content-between"></div>
-						<a href="Add?id=<%=p.getId()%>" class="btn btn-dark">Add
-							to Cart</a> <a href="#" class="btn btn-primary">Buy Now</a>
+						<a href="Add?id=<%=p.getId()%>" class="btn btn-dark">Add to
+							Cart</a> <a href="#" class="btn btn-primary">Buy Now</a>
 					</div>
 				</div>
 			</div>
