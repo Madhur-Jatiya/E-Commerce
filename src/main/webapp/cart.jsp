@@ -48,11 +48,11 @@ if (auth != null) {
 					<td>2499.00 &#8377;</td>
 					<td>
 						<form action="" method="post" class="form-inline">
-							<input type="hidden" name="id" value="8" class="form-input">
+							<input type="hidden" name="id" value="1" class="form-input">
 							<div class="form-group d-flex justify-content-between">
 								<a class="btn bnt-sm btn-decre" href="#"><i
 									class="fas fa-minus-square"></i></a> <input type="text"
-									name="quantity" value="8" class="form-control" readonly>
+									name="quantity" value="1" class="form-control" readonly>
 								<a class="btn bnt-sm btn-incre" href="#"><i
 									class="fas fa-plus-square"></i></a>
 							</div>
