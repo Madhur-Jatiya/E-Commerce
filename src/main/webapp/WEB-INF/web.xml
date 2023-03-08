@@ -16,6 +16,12 @@
   	<description></description>
   	<servlet-class>Servlet.LogoutServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>AddToCart</servlet-name>
+  	<display-name>AddToCart</display-name>
+  	<description></description>
+  	<servlet-class>Servlet.AddToCart</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>LoginServlet</servlet-name>
   	<url-pattern>/LoginServlet</url-pattern>
@@ -23,5 +29,9 @@
   <servlet-mapping>
   	<servlet-name>LogoutServlet</servlet-name>
   	<url-pattern>/LogoutServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AddToCart</servlet-name>
+  	<url-pattern>/AddToCart</url-pattern>
   </servlet-mapping>
 </web-app>
