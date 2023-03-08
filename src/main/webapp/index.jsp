@@ -29,46 +29,35 @@ List<Product> products = pd.getAllProducts();
 	<div class="container">
 		<div class="card-header my-3">All Products</div>
 		<div class="row">
-		<%if(!products.isEmpty())
-		{
-			for(Product p : products)
-			{
-				out.println(p.getName());
-			}
-		}
-		
-		else{
-			out.print("by");
-		}
+			<%
+			if (!products.isEmpty()) {
+				for (Product p : products) {
 			%>
+
 			<div class="col-md-3">
 				<div class="card w-100" style="width: 18rem;">
-					<img class="card-img-top" src="product-images/watches/watch.jpg"
+					<img class="card-img-top" src="product-images/<%= p.getImage() %>"
 						alt="Card image cap">
 					<div class="card-body">
-						<h5 class="card-title">Men's Watch</h5>
-						<h6 class="price">Price : 1000&#8377;</h6>
-						<h6 class="category">Category: some category</h6>
+						<h5 class="card-title"><%=p.getName()%></h5>
+						<h6 class="price">Price : <%= p.getPrice() %> &#8377;</h6>
+						<h6 class="category">Category: <%= p.getCategory() %> </h6>
 						<div class="mt-3 d-flex justify-content-between"></div>
 						<a href="#" class="btn btn-primary">Add to Cart</a> <a href="#"
 							class="btn btn-primary">Buy Now</a>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-3">
-				<div class="card w-100" style="width: 18rem;">
-					<img class="card-img-top" src="product-images/watches/watch1.jpg"
-						alt="Card image cap">
-					<div class="card-body">
-						<h5 class="card-title">Men's Royal Watch</h5>
-						<h6 class="price">Price : 2000&#8377;</h6>
-						<h6 class="category">Category: some category</h6>
-						<div class="mt-3 d-flex justify-content-between"></div>
-						<a href="#" class="btn btn-primary">Add to Cart</a> <a href="#"
-							class="btn btn-primary">Buy Now</a>
-					</div>
-				</div>
-			</div>
+
+			<%
+			}
+			}
+
+			else {
+			out.print("by");
+			}
+			%>
+
 		</div>
 	</div>
 
