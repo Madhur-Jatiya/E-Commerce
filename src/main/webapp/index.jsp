@@ -36,14 +36,21 @@ List<Product> products = pd.getAllProducts();
 
 			<div class="col-md-3">
 				<div class="card w-100" style="width: 18rem;">
-					<img class="card-img-top" src="product-images/<%= p.getImage() %>"
+					<img class="card-img-top" src="product-images/<%=p.getImage()%>"
 						alt="Card image cap">
 					<div class="card-body">
 						<h5 class="card-title"><%=p.getName()%></h5>
-						<h6 class="price">Price : <%= p.getPrice() %> &#8377;</h6>
-						<h6 class="category">Category: <%= p.getCategory() %> </h6>
+						<h6 class="price">
+							Price :
+							<%=p.getPrice()%>
+							&#8377;
+						</h6>
+						<h6 class="category">
+							Category:
+							<%=p.getCategory()%>
+						</h6>
 						<div class="mt-3 d-flex justify-content-between"></div>
-						<a href="#" class="btn btn-primary">Add to Cart</a> <a href="#"
+						<a href="cart.jsp" class="btn btn-dark">Add to Cart</a> <a href="#"
 							class="btn btn-primary">Buy Now</a>
 					</div>
 				</div>
@@ -51,10 +58,6 @@ List<Product> products = pd.getAllProducts();
 
 			<%
 			}
-			}
-
-			else {
-			out.print("by");
 			}
 			%>
 
