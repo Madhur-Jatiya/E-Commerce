@@ -4,7 +4,7 @@
 <%
 User auth = (User) request.getSession().getAttribute("auth");
 if (auth != null) {
-	/* response.sendRedirect("index.jsp"); */
+	response.sendRedirect("index.jsp");
 }
 %>
 <!doctype html>

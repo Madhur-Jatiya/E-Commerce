@@ -19,7 +19,9 @@ if (auth != null) {
 </head>
 <body>
 	<%@include file="includes/nav.jsp"%>
-
+	<%
+	out.println(auth);
+	%>
 
 	<%@include file="includes/footer.jsp"%>
 </body>
