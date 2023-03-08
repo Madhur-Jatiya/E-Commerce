@@ -3,6 +3,7 @@ package Servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -38,7 +39,22 @@ public class AddToCartServlet extends HttpServlet {
 
 				out.print("create");
 			} else {
-				out.print("exist");
+				cartList = cart_List;
+				boolean exist = false;
+
+				for (Cart c : cartList) {
+					if (c.getId() == id) {
+						exist = true;
+						out.println("<h3 style='color:crimson; text-align: center'>Item Already in Cart. <a href='cart.jsp'>Go to Cart Page</a></h3>");
+					}
+				}
+				if (!exist) {
+					cartList.add(cart);
+					response.sendRedirect("index.jsp");
+				}
+			}
+			for (Cart c : cartList) {
+				out.print(c.getId());
 			}
 
 		} catch (Exception e) {
