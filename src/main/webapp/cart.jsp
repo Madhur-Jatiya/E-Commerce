@@ -68,14 +68,15 @@ if (cart_list != null) {
 					<td><%=c.getCategory()%></td>
 					<td><%=c.getPrice()%> &#8377;</td>
 					<td>
-						<form action="" method="post" class="form-inline">
-							<input type="hidden" name="id" value="1" class="form-input">
-							<div class="form-group d-flex justify-content-between">
+						<form action="OrderNow" method="post" class="form-inline">
+							<input type="hidden" name="id" value="<%=c.getId()%>"
+								class="form-input">
+							<div class="form-group d-flex justify-content-between w-50">
 								<a class="btn bnt-sm btn-decre"
 									href="Quantity_incr_dec?action=dec&id=<%=c.getId()%>"><i
 									class="fas fa-minus-square"></i></a> <input type="text"
 									name="quantity" value="<%=c.getQuantity()%>"
-									class="form-control" readonly> <a
+									class="form-control w-50" readonly> <a
 									class="btn bnt-sm btn-incre"
 									href="Quantity_incr_dec?action=inc&id=<%=c.getId()%>"><i
 									class="fas fa-plus-square"></i></a>
@@ -83,7 +84,8 @@ if (cart_list != null) {
 							<button type="submit" class="btn btn-primary btn-sm">Buy</button>
 						</form>
 					</td>
-					<td><a class="btn btn-sm btn-danger" href="RemoveFromCart?id=<%=c.getId()%>">Remove</a></td>
+					<td><a class="btn btn-sm btn-danger"
+						href="RemoveFromCart?id=<%=c.getId()%>">Remove</a></td>
 				</tr>
 				<%
 				}
