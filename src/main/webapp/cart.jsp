@@ -4,8 +4,9 @@
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <%@page import="Entity.*"%>
+
 <%
 User auth = (User) request.getSession().getAttribute("auth");
 if (auth != null) {
@@ -18,7 +19,9 @@ List<Cart> cartProduct = null;
 if (cart_list != null) {
 	ProductDao pDao = new ProductDao(DbConnection.getConnection());
 	cartProduct = pDao.getCartProducts(cart_list);
+	Double total = pDao.getTotalCartPrice(cart_list);
 	request.setAttribute("cart_list", cart_list);
+	request.setAttribute("total", total);
 }
 %>
 <!doctype html>
@@ -42,7 +45,7 @@ if (cart_list != null) {
 	<%@include file="includes/nav.jsp"%>
 	<div class="container my-3">
 		<div class="d-flex py-3">
-			<h3>Total Price : 2423 &#8377;</h3>
+			<h3>Total Price: ${ (total>0)?total:0 }&#8377;</h3>
 			<a class="mx-3 btn btn-primary" href="#">Check out</a>
 		</div>
 		<table class="table table-light">
@@ -68,16 +71,19 @@ if (cart_list != null) {
 						<form action="" method="post" class="form-inline">
 							<input type="hidden" name="id" value="1" class="form-input">
 							<div class="form-group d-flex justify-content-between">
-								<a class="btn bnt-sm btn-decre" href="#"><i
+								<a class="btn bnt-sm btn-decre"
+									href="Quantity_incr_dec?action=dec&id=<%=c.getId()%>"><i
 									class="fas fa-minus-square"></i></a> <input type="text"
-									name="quantity" value="<%=c.getQuantity()%>" class="form-control"
-									readonly> <a class="btn bnt-sm btn-incre" href="#"><i
+									name="quantity" value="<%=c.getQuantity()%>"
+									class="form-control" readonly> <a
+									class="btn bnt-sm btn-incre"
+									href="Quantity_incr_dec?action=inc&id=<%=c.getId()%>"><i
 									class="fas fa-plus-square"></i></a>
 							</div>
 							<button type="submit" class="btn btn-primary btn-sm">Buy</button>
 						</form>
 					</td>
-					<td><a class="btn btn-sm btn-danger" href="#">Remove</a></td>
+					<td><a class="btn btn-sm btn-danger" href="RemoveFromCart?id=<%=c.getId()%>">Remove</a></td>
 				</tr>
 				<%
 				}

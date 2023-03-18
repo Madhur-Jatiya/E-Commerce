@@ -38,7 +38,7 @@ public class ProductDao {
 				products.add(row);
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println(e);
 		}
 		return products;
 	}
@@ -46,29 +46,52 @@ public class ProductDao {
 	public List<Cart> getCartProducts(List<Cart> cartList) {
 		List<Cart> products = new ArrayList<Cart>();
 		try {
-			if (cartList.size()>0) {
-				
+			if (cartList.size() > 0) {
+
 			}
 			for (Cart items : cartList) {
 				query = "Select * from products where id = ?";
 				psmt = connection.prepareStatement(query);
 				psmt.setInt(1, items.getId());
 				rs = psmt.executeQuery();
-				
-				while(rs.next())
-				{
+
+				while (rs.next()) {
 					Cart row = new Cart();
 					row.setId(rs.getInt("id"));
 					row.setName(rs.getString("name"));
-					row.setPrice(rs.getDouble("price")*items.getQuantity());
+					row.setPrice(rs.getDouble("price") * items.getQuantity());
 					row.setCategory(rs.getString("category"));
 					row.setQuantity(items.getQuantity());
 					products.add(row);
 				}
 			}
 		} catch (Exception e) {
-			 e.printStackTrace();
+			e.printStackTrace();
 		}
 		return products;
+	}
+
+	public double getTotalCartPrice(ArrayList<Cart> cartList) {
+		double sum = 0;
+
+		try {
+			if (cartList.size() > 0) {
+				for (Cart item : cartList) {
+					query = "Select price from products where id = ?";
+					psmt = connection.prepareStatement(query);
+					psmt.setInt(1, item.getId());
+					rs = psmt.executeQuery();
+					while(rs.next())
+					{
+						sum = sum + rs.getDouble("price")*item.getQuantity();
+					}
+				}
+			}
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
+		return sum;
 	}
 }

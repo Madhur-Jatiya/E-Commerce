@@ -22,6 +22,18 @@
   	<description></description>
   	<servlet-class>Servlet.AddToCartServlet</servlet-class>
   </servlet>
+<servlet>
+	<servlet-name>Quantity_incr_dec</servlet-name>
+	<display-name>Quantity_incr_dec</display-name>
+	<description></description>
+	<servlet-class>Servlet.Quantity_incr_dec</servlet-class>
+</servlet>
+<servlet>
+	<servlet-name>RemoveFromCart</servlet-name>
+	<display-name>RemoveFromCart</display-name>
+	<description></description>
+	<servlet-class>Servlet.RemoveFromCart</servlet-class>
+</servlet>
  
   <servlet-mapping>
   	<servlet-name>LoginServlet</servlet-name>
@@ -35,5 +47,13 @@
   	<servlet-name>AddToCartServlet</servlet-name>
   	<url-pattern>/Add</url-pattern>
   </servlet-mapping>
+ <servlet-mapping>
+ 	<servlet-name>Quantity_incr_dec</servlet-name>
+ 	<url-pattern>/Quantity_incr_dec</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+ 	<servlet-name>RemoveFromCart</servlet-name>
+ 	<url-pattern>/RemoveFromCart</url-pattern>
+ </servlet-mapping>
 
 </web-app>

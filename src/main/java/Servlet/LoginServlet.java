@@ -42,9 +42,9 @@ public class LoginServlet extends HttpServlet {
 				out.print("incorrect");
 			}
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			System.out.println(e);
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e);
 		}
 
 	}

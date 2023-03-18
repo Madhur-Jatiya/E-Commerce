@@ -1,10 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" isELIgnored="false"
 	pageEncoding="ISO-8859-1"%>
 <%@page import="Entity.*"%>
+<%@page import="java.util.ArrayList"%>
 <%
 User auth = (User) request.getSession().getAttribute("auth");
 if (auth != null) {
 	response.sendRedirect("index.jsp");
+}
+ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
+if (cart_list != null) {
+	request.setAttribute("cart_list", cart_list);
 }
 %>
 <!doctype html>

@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@page import="java.util.List"%>
 <%@page import="Dao.ProductDao"%>
@@ -5,7 +6,7 @@
 <%@page import="org.apache.jasper.tagplugins.jstl.core.Import"%>
 <%@page import="Connection.DbConnection"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1" isELIgnored="false"%>
 
 <%@page import="Entity.*"%>
 <%
@@ -16,6 +17,11 @@ if (auth != null) {
 
 ProductDao pd = new ProductDao(DbConnection.getConnection());
 List<Product> products = pd.getAllProducts();
+
+ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
+if (cart_list != null) {
+	request.setAttribute("cart_list", cart_list);
+}
 %>
 <!doctype html>
 <html lang="en">
@@ -42,7 +48,8 @@ List<Product> products = pd.getAllProducts();
 						<h5 class="card-title"><%=p.getName()%></h5>
 						<h6 class="price">
 							Price :
-							<%=p.getPrice()%> &#8377;
+							<%=p.getPrice()%>
+							&#8377;
 
 						</h6>
 						<h6 class="category">

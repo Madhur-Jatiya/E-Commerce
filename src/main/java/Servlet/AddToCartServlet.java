@@ -55,10 +55,11 @@ public class AddToCartServlet extends HttpServlet {
 			}
 			for (Cart c : cartList) {
 				out.print(c.getId());
+				response.sendRedirect("index.jsp");
 			}
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println(e);
 		}
 	}
 

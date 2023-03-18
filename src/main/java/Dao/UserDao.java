@@ -33,7 +33,7 @@ public class UserDao {
 //				user.setPswd(rs.getString("password"));
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println(e);
 		}
 		return user;
 	}
