@@ -58,7 +58,8 @@ if (cart_list != null) {
 						</h6>
 						<div class="mt-3 d-flex justify-content-between"></div>
 						<a href="Add?id=<%=p.getId()%>" class="btn btn-dark">Add to
-							Cart</a> <a href="OrderNow" class="btn btn-primary">Buy Now</a>
+							Cart</a> <a href="OrderNow?Quantity=1&id=<%=p.getId()%>"
+							class="btn btn-primary">Buy Now</a>
 					</div>
 				</div>
 			</div>
