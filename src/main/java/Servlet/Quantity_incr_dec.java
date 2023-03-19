@@ -57,7 +57,8 @@ public class Quantity_incr_dec extends HttpServlet {
 				response.sendRedirect("cart.jsp");
 			}
 		} catch (Exception e) {
-			System.out.println(e);
+//			System.out.println(e);
+			e.printStackTrace();
 		}
 	}
 

@@ -40,6 +40,12 @@
 	<description></description>
 	<servlet-class>Servlet.OrderNow</servlet-class>
 </servlet>
+<servlet>
+	<servlet-name>CheckOutServlet</servlet-name>
+	<display-name>CheckOutServlet</display-name>
+	<description></description>
+	<servlet-class>Servlet.CheckOutServlet</servlet-class>
+</servlet>
  
   <servlet-mapping>
   	<servlet-name>LoginServlet</servlet-name>
@@ -64,6 +70,10 @@
  <servlet-mapping>
  	<servlet-name>OrderNow</servlet-name>
  	<url-pattern>/OrderNow</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+ 	<servlet-name>CheckOutServlet</servlet-name>
+ 	<url-pattern>/CheckOutServlet</url-pattern>
  </servlet-mapping>
 
 </web-app>

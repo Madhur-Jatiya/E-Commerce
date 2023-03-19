@@ -46,7 +46,7 @@ if (cart_list != null) {
 	<div class="container my-3">
 		<div class="d-flex py-3">
 			<h3>Total Price: ${ (total>0)?total:0 }&#8377;</h3>
-			<a class="mx-3 btn btn-primary" href="#">Check out</a>
+			<a class="mx-3 btn btn-primary" href="CheckOutServlet">Check out</a>
 		</div>
 		<table class="table table-light">
 			<thead>
