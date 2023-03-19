@@ -51,7 +51,7 @@ public class CheckOutServlet extends HttpServlet {
 				if (auth == null) {
 					response.sendRedirect("login.jsp");
 				} else {
-					response.sendRedirect("card.jsp");	//by me
+					response.sendRedirect("card.jsp");	//need check
 				}
 			}
 		} catch (Exception e) {
