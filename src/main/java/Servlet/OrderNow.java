@@ -26,6 +26,7 @@ public class OrderNow extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		response.setContentType("text/html;charset=UTF-8");
 		try {
 			PrintWriter out = response.getWriter();
 			User auth = (User) request.getSession().getAttribute("auth");
@@ -33,7 +34,6 @@ public class OrderNow extends HttpServlet {
 			if (auth != null) {
 				String productId = request.getParameter("id");
 				int productQuantity = Integer.parseInt(request.getParameter("quantity"));
-
 				if (productQuantity <= 0) {
 					productQuantity = 1;
 				}
