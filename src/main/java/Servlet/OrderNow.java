@@ -2,6 +2,7 @@ package Servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import Connection.DbConnection;
 import Dao.OrderDao;
+import Entity.Cart;
 import Entity.Order;
 import Entity.User;
 
@@ -44,6 +46,15 @@ public class OrderNow extends HttpServlet {
 				boolean result = orderDao.insertOrder(order);
 
 				if (result) {
+					ArrayList<Cart> cart_list = (ArrayList<Cart>) request.getSession().getAttribute("cart-list");
+					if (cart_list != null) {
+						for (Cart c : cart_list) {
+							if (c.getId() == Integer.parseInt(productId)) {
+								cart_list.remove(cart_list.indexOf(c));
+								break;
+							}
+						}
+					}
 					response.sendRedirect("orders.jsp");
 				} else {
 					out.println("order failed");
