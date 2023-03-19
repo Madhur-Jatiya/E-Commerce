@@ -77,9 +77,8 @@ public class ProductDao {
 					psmt = connection.prepareStatement(query);
 					psmt.setInt(1, item.getId());
 					rs = psmt.executeQuery();
-					while(rs.next())
-					{
-						sum = sum + rs.getDouble("price")*item.getQuantity();
+					while (rs.next()) {
+						sum = sum + rs.getDouble("price") * item.getQuantity();
 					}
 				}
 			}
@@ -89,5 +88,28 @@ public class ProductDao {
 		}
 
 		return sum;
+	}
+
+	public Product getSingleProduct(int productId) {
+		Product row = null;
+		try {
+			query = "select * from products where id = ?";
+			psmt = connection.prepareStatement(query);
+			psmt.setInt(1, productId);
+			rs = psmt.executeQuery();
+
+			while (rs.next()) {
+				row = new Product();
+				row.setId(rs.getInt("id"));
+				row.setName(rs.getString("name"));
+				row.setCategory(rs.getString("category"));
+				row.setPrice(rs.getDouble("price"));
+				row.setImage(rs.getString("image"));
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return row;
 	}
 }

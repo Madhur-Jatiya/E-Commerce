@@ -33,7 +33,7 @@ public class CheckOutServlet extends HttpServlet {
 			if (auth != null && cart_list != null) {
 				for (Cart c : cart_list) {
 					Order order = new Order();
-					order.setProductId(c.getId());
+					order.setProductId(c.getId()); // need to check
 					order.setuId(auth.getId());
 					order.setQuantity(c.getQuantity());
 
