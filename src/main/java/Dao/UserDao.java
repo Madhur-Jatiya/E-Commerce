@@ -37,4 +37,21 @@ public class UserDao {
 		}
 		return user;
 	}
+
+	public boolean userRegister(String name, String email, String pswd) {
+		boolean result = false;
+
+		try {
+			query = "insert into users(name,email,password) values(?,?,?)";
+			psmt = connection.prepareStatement(query);
+			psmt.setString(1, name);
+			psmt.setString(2, email);
+			psmt.setString(3, pswd);
+			psmt.execute();
+			result = true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 }
