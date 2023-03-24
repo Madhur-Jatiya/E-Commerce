@@ -8,18 +8,18 @@ I am thrilled to have completed this project on my own and am proud of the hard 
 <div align="center">
   
 # Home
-  ![Screenshot (26)](https://user-images.githubusercontent.com/70679523/227512521-39943cb8-f880-4df9-aeab-9fea1bb8a0a2.png)
+![Screenshot (31)](https://user-images.githubusercontent.com/70679523/227514853-980fc71b-9697-426e-9694-e8148b369cdc.png)
 
 # LogIn
-  ![Screenshot (28)](https://user-images.githubusercontent.com/70679523/227512612-8802476f-550e-4757-9b62-df05ea15fe45.png)
-  
+  ![Screenshot (33)](https://user-images.githubusercontent.com/70679523/227514901-8817e4e3-6187-4686-8940-a1111454d7a6.png)
+
 # SignUp
-  ![Screenshot (29)](https://user-images.githubusercontent.com/70679523/227512633-625997d7-9390-48f3-b038-61286198d4e1.png)
-  
+  ![Screenshot (32)](https://user-images.githubusercontent.com/70679523/227514877-f8989760-32e0-4c38-86a0-21465885382d.png)
+
 # Cart
-  ![Screenshot (27)](https://user-images.githubusercontent.com/70679523/227512667-64b3e24f-5fc9-45d9-946b-15b0d370ec1b.png)
+![Screenshot (34)](https://user-images.githubusercontent.com/70679523/227514937-fce9f91d-6679-42ca-ba99-e0b7a9fc5dc1.png)
 
 # Orders
-  ![Screenshot (30)](https://user-images.githubusercontent.com/70679523/227512739-385d8bd6-749b-45a0-8bf1-2069c125b032.png)
-  
+  ![Screenshot (35)](https://user-images.githubusercontent.com/70679523/227514914-22383c36-5d51-495d-8e70-e83e68a03369.png)
+
 </div>
